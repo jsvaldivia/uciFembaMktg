@@ -1,0 +1,12 @@
+Sub add_round()
+Dim rng As Range
+    For Each rng In Selection
+        If IsNumeric(rng.Formula) Then
+            rng.Value = "=Round(" & Mid(rng.Formula, 1, 9999) & ",3)"
+        Else
+            Exit If
+        End If
+    rng.NumberFormat = "0.000"
+    Next rng
+    
+End Sub
