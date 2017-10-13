@@ -1,3 +1,5 @@
+' make selection in workbook and run macro
+
 Sub add_round()
 Dim rng As Range
 Dim wst As Range        ' this will be a temporary holder
