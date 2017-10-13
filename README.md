@@ -1,2 +1,2 @@
 # uciFembaMktg
-decimal rounder and formater
+decimal rounder and formatter
