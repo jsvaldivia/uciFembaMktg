@@ -8,7 +8,7 @@ Dim wst As Range        ' this will be a temporary holder
         If Not IsEmpty(rng.Value) Then      ' makes sure empty values are not edited
             If IsNumeric(rng.Formula) Then      ' checks formula line for numbers
                 rng.Value = "=Round(" & Mid(rng.Formula, 1, 9999) & ",3)"       ' grabs text from formula bar at first line
-            ElseIf IsNumeric(rng.Value) Then
+            ElseIf IsNumeric(rng.Value) Then        ' check value for numbers
                 Set wst = rng
                 rng.Value = "=Round(" & Mid(rng.Formula, 2, 9999) & ",3)"       ' this makes sure you grab the second line after = in formula
                 Set rng = wst
