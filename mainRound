@@ -1,6 +1,7 @@
 ' make selection in workbook and run macro
 
 Sub add_round()
+
 Dim rng As Range
 Dim wst As Range        ' this will be a temporary holder
     For Each rng In Selection                   
@@ -14,6 +15,6 @@ Dim wst As Range        ' this will be a temporary holder
             End If
         End If
     rng.NumberFormat = "0.000"      ' actually formats after rounding
-    Next rng
+    Next rng 
     
 End Sub
