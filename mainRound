@@ -1,17 +1,17 @@
 Sub add_round()
 Dim rng As Range
-Dim wst As Range
-    For Each rng In Selection
-        If Not IsEmpty(rng.Value) Then
-            If IsNumeric(rng.Formula) Then
-                rng.Value = "=Round(" & Mid(rng.Formula, 1, 9999) & ",3)"
+Dim wst As Range        ' this will be a temporary holder
+    For Each rng In Selection                   
+        If Not IsEmpty(rng.Value) Then      ' makes sure empty values are not edited
+            If IsNumeric(rng.Formula) Then      ' checks formula line for numbers
+                rng.Value = "=Round(" & Mid(rng.Formula, 1, 9999) & ",3)"       ' grabs text from formula bar at first line
             ElseIf IsNumeric(rng.Value) Then
                 Set wst = rng
-                rng.Value = "=Round(" & Mid(rng.Formula, 2, 9999) & ",3)"
+                rng.Value = "=Round(" & Mid(rng.Formula, 2, 9999) & ",3)"       ' this makes sure you grab the second line after = in formula
                 Set rng = wst
             End If
         End If
-    rng.NumberFormat = "0.000"
+    rng.NumberFormat = "0.000"      ' actually formats after rounding
     Next rng
     
 End Sub
